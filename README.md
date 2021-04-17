@@ -31,8 +31,6 @@ cd /
 git clone https://github.com/isaacrsjr/AdmOKD-Ativ4.git
 cd AdmOKD-Ativ4
 
-kubectl create namespace admokd-ativ4
-
 cat deployment.yml              # somente para exibição do conteúdo
 kubeclt apply -f deployment.yml
 
@@ -42,4 +40,5 @@ cat service.yml                 # somente para exibição do conteúdo
 kubeclt apply -f service.yml
 
 # execução do curl <clusterIP>:<servicePort> para exibir o html do container
+#kubectl scale deployment app-ativ4-dep --replicas=3
 ```
