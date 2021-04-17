@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app-ativ4
-  namespace: default
+  name: app-ativ4-dep
+  namespace: admokd-ativ4
 spec:
   replicas: 2
   selector:
@@ -12,5 +12,11 @@ spec:
     metadata:
       labels:
         app: app-ativ4
-        
-    
+    spec:
+      containers:
+      - name: admokd-ativ2-container
+        image: isaacrsjr/adm_okd_ativ2:v3
+        ports:
+          - containerPort: 5000
+            hostPort: 80
+      restartPolicy: OnFailure

@@ -26,11 +26,20 @@ service.yml:
 Comandos Executados no Master:
 
 ```bash
+# obtendo arquivos dos rescursos kubernetes
 cd /
-git clone git@github.com:isaacrsjr/AdmOKD-Ativ4.git
+git clone https://github.com/isaacrsjr/AdmOKD-Ativ4.git
 cd AdmOKD-Ativ4
+
+kubectl create namespace admokd-ativ4
+
+cat deployment.yml              # somente para exibição do conteúdo
 kubeclt apply -f deployment.yml
+
+kubectl get pods
+
+cat service.yml                 # somente para exibição do conteúdo
 kubeclt apply -f service.yml
 
-
+# execução do curl <clusterIP>:<servicePort> para exibir o html do container
 ```
