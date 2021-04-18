@@ -136,3 +136,37 @@ kubectl exec -ti <pod> bash
 env | grep NAME
 exit
 ```
+
+## Etapa 3
+
+Para a realização da tarefa foi criado o arquivo *hpa.yml*.
+
+O *commit* no github, referente a essa etapa é [esse aqui](https://github.com/isaacrsjr/AdmOKD-Ativ4/tree/etapa3#etapa-3).
+
+hpa.yml:
+
+```yml
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: app-ativ4-hpa
+spec:
+  scaleTargetRef:
+    kind: Deployment
+    name: app-ativ4-dep
+  minReplicas: 3
+  maxReplicas: 3
+```
+
+Comandos Executados no Master (depos de ter feito a etapa 1):
+
+```bash
+# obtendo arquivos dos rescursos kubernetes
+cd /AdmOKD-Ativ4
+git checkout etapa3
+
+cat hpa.yml # somente para exibição do conteúdo
+kubeclt create -f configmap.yml
+
+kubectl get pods -o json | jq '.items[] | .spec.nodeName + " " + .metadata.name'
+```

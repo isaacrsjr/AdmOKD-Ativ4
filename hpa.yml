@@ -1,0 +1,10 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: app-ativ4-hpa
+spec:
+  scaleTargetRef:
+    kind: Deployment
+    name: app-ativ4-dep
+  minReplicas: 3
+  maxReplicas: 3
