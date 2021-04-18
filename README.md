@@ -129,6 +129,8 @@ cat service.yml                 # somente para exibição do conteúdo
 kubeclt apply -f service.yml
 
 kubectl get pods
-# execução do curl <clusterIP>:80 para exibir o html do container
-# a porta 80 foi definida no arquivo service.yml
+
+kubectl exec -ti <pod> bash
+env | grep NAME
+exit
 ```
