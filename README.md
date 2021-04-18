@@ -56,6 +56,7 @@ Comandos Executados no Master:
 cd /
 git clone https://github.com/isaacrsjr/AdmOKD-Ativ4.git
 cd AdmOKD-Ativ4
+git checkout etapa1
 
 cat deployment.yml              # somente para exibição do conteúdo
 kubeclt apply -f deployment.yml
@@ -121,6 +122,7 @@ Comandos Executados no Master (depos de ter feito a etapa 1):
 ```bash
 # obtendo arquivos dos rescursos kubernetes
 cd /AdmOKD-Ativ4
+git checkout etapa2
 
 cat configmap.yml               # somente para exibição do conteúdo
 kubeclt create -f configmap.yml
