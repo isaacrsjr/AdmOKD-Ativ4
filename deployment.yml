@@ -17,4 +17,6 @@ spec:
         image: isaacrsjr/adm_okd_ativ2:v3
         ports:
           - containerPort: 5000
-
+        envFrom:
+          - configMapRef:
+              name: app-ativ4-cfgmap
