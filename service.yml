@@ -4,7 +4,7 @@ metadata:
   name: app-ativ4-svc
 spec:
   selector:
-    app: app-ativ4-dep
+    app: app-ativ4
   ports:
   - port: 80
     targetPort: 5000

@@ -13,14 +13,40 @@ O *commit* no github, referente a essa atividade é [esse aqui](https://github.c
 deployment.yml:
 
 ```yml
-
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-ativ4-dep
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: app-ativ4
+  template:
+    metadata:
+      labels:
+        app: app-ativ4
+    spec:
+      containers:
+      - name: admokd-ativ2-container
+        image: isaacrsjr/adm_okd_ativ2:v3
+        ports:
+          - containerPort: 5000
 ```
 
 service.yml:
 
 ```yml
-
-
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-ativ4-svc
+spec:
+  selector:
+    app: app-ativ4
+  ports:
+  - port: 80
+    targetPort: 5000
 ```
 
 Comandos Executados no Master:
@@ -39,6 +65,7 @@ kubectl get pods
 cat service.yml                 # somente para exibição do conteúdo
 kubeclt apply -f service.yml
 
-# execução do curl <clusterIP>:<servicePort> para exibir o html do container
-#kubectl scale deployment app-ativ4-dep --replicas=3
+kubectl get service
+# execução do curl <clusterIP>:80 para exibir o html do container
+# a porta 80 foi definida no arquivo service.yml
 ```
