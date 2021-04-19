@@ -127,8 +127,8 @@ git checkout etapa2
 cat configmap.yml               # somente para exibição do conteúdo
 kubectl create -f configmap.yml
 
-cat service.yml                 # somente para exibição do conteúdo
-kubectl apply -f service.yml
+cat deployment.yml              # somente para exibição do conteúdo
+kubectl apply -f deployment.yml
 
 kubectl get pods
 
