@@ -59,12 +59,12 @@ cd AdmOKD-Ativ4
 git checkout etapa1
 
 cat deployment.yml              # somente para exibição do conteúdo
-kubeclt apply -f deployment.yml
+kubectl apply -f deployment.yml
 
 kubectl get pods
 
 cat service.yml                 # somente para exibição do conteúdo
-kubeclt apply -f service.yml
+kubectl apply -f service.yml
 
 kubectl get services
 # execução do curl <clusterIP>:80 para exibir o html do container
@@ -125,10 +125,10 @@ cd /AdmOKD-Ativ4
 git checkout etapa2
 
 cat configmap.yml               # somente para exibição do conteúdo
-kubeclt create -f configmap.yml
+kubectl create -f configmap.yml
 
 cat service.yml                 # somente para exibição do conteúdo
-kubeclt apply -f service.yml
+kubectl apply -f service.yml
 
 kubectl get pods
 
@@ -166,7 +166,7 @@ cd /AdmOKD-Ativ4
 git checkout etapa3
 
 cat hpa.yml # somente para exibição do conteúdo
-kubeclt create -f configmap.yml
+kubectl create -f configmap.yml
 
 kubectl get pods -o json | jq '.items[] | .spec.nodeName + " " + .metadata.name'
 ```
