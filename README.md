@@ -169,4 +169,11 @@ cat hpa.yml # somente para exibição do conteúdo
 kubectl create -f hpa.yml
 
 kubectl get pods -o json | jq '.items[] | .spec.nodeName + " " + .metadata.name'
+
+# alerando a quantidade de pods:
+kubectl edit hpa app-ativ4-hpa
+
+# para acompanhar as alteraçoes:
+watch -d kubectl get pods
+#
 ```

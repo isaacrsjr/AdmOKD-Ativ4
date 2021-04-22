@@ -2,9 +2,12 @@ apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
   name: app-ativ4-hpa
+  namespace: default
 spec:
+  maxReplicas: 10
+  minReplicas: 3
   scaleTargetRef:
+    apiVersion: apps/v1
     kind: Deployment
     name: app-ativ4-dep
-  minReplicas: 3
-  maxReplicas: 3
+  targetCPUUtilizationPercentage: 10
