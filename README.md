@@ -166,7 +166,7 @@ cd /AdmOKD-Ativ4
 git checkout etapa3
 
 cat hpa.yml # somente para exibição do conteúdo
-kubectl create -f hba.yml
+kubectl create -f hpa.yml
 
 kubectl get pods -o json | jq '.items[] | .spec.nodeName + " " + .metadata.name'
 ```
