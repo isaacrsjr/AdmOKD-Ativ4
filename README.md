@@ -150,12 +150,15 @@ apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
   name: app-ativ4-hpa
+  namespace: default
 spec:
+  maxReplicas: 10
+  minReplicas: 3
   scaleTargetRef:
+    apiVersion: apps/v1
     kind: Deployment
     name: app-ativ4-dep
-  minReplicas: 3
-  maxReplicas: 3
+  targetCPUUtilizationPercentage: 10
 ```
 
 Comandos Executados no Master (depos de ter feito a etapa 1):
@@ -168,9 +171,10 @@ git checkout etapa3
 cat hpa.yml # somente para exibição do conteúdo
 kubectl create -f hpa.yml
 
+# para verificar em quais nodes os pods estão rodando:
 kubectl get pods -o json | jq '.items[] | .spec.nodeName + " " + .metadata.name'
 
-# alerando a quantidade de pods:
+# alterando a quantidade de pods:
 kubectl edit hpa app-ativ4-hpa
 
 # para acompanhar as alteraçoes:
